@@ -6,16 +6,16 @@
         "author": "Sandor Tokesi"
     },
     "parameters": {
-        "workflows_name": {
+        "Playbook name": {
             "defaultValue": "spur_alert",
             "type": "String"
         },
-        "connections_azuresentinel_externalid": {
-            "defaultValue": "",
+        "Sentinel ID": {
+            "defaultValue": "<Sentinel in which the incidents reside>",
             "type": "String"
         },
-        "connections_keyvault_externalid": {
-            "defaultValue": "",
+        "Keyvault Name": {
+            "defaultValue": "<Keyvault name with the Spur API token secret in it>",
             "type": "String"
         }
     },
@@ -24,7 +24,7 @@
         {
             "type": "Microsoft.Logic/workflows",
             "apiVersion": "2017-07-01",
-            "name": "[parameters('workflows_name')]",
+            "name": "[parameters('Playbook name')]",
             "location": "northeurope",
             "properties": {
                 "state": "Enabled",
