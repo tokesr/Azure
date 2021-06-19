@@ -29,7 +29,7 @@
             "name": "[variables('AzureSentinelConnectionName')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "displayName": "Spur-Azure-APIConnection",
+                "displayName": "SpurIncident-Azure-APIConnection",
                 "customParameterValues": {},
                 "api": {
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
@@ -43,7 +43,7 @@
             "name": "[variables('KeyVaultConnectionName')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "displayName": "Spur-KeyVault-APIConnection",
+                "displayName": "SpurIncident-KeyVault-APIConnection",
                 "customParameterValues": {},
                 "api": {
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/keyvault')]"
