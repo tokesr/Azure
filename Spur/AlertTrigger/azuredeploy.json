@@ -16,6 +16,13 @@
             "metadata": {
                 "description": "Name of the KeyVault in which the Spur API token is stored."
             }
+        },
+        "SecretName": {
+            "defaultValue": "secretname",
+            "type": "String",
+            "metadata": {
+                "description": "Name of the Secret in which the Spur API token is stored."
+            }
         }
     },
     "variables": {
@@ -29,7 +36,7 @@
             "name": "[variables('AzureSentinelConnectionName')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "displayName": "SpurIncident-Azure-APIConnection",
+                "displayName": "SpurAlert-Azure-APIConnection",
                 "customParameterValues": {},
                 "api": {
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
@@ -43,7 +50,7 @@
             "name": "[variables('KeyVaultConnectionName')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "displayName": "SpurIncident-KeyVault-APIConnection",
+                "displayName": "SpurAlert-KeyVault-APIConnection",
                 "customParameterValues": {},
                 "api": {
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/keyvault')]"
@@ -871,7 +878,7 @@
                                     }
                                 },
                                 "method": "get",
-                                "path": "/secrets/@{encodeURIComponent('spur')}/value"
+                                "path": "[concat('/secrets/@{encodeURIComponent(''', parameters('SecretName'), ''')}/value')]"
                             }
                         },
                         "Initialize_Comment_variable": {
